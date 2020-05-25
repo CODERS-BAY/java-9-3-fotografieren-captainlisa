@@ -6,15 +6,17 @@ public class Lens {
     private int maxFocalLength;
     private static int NUM_OF_LENSES;
 
-    public Lens(int minFocalLength, int maxFocalLength) {
+    public Lens(int minFocalLength, int maxFocalLength) throws IllegalArgumentException {
+
         this.minFocalLength = minFocalLength;
         this.maxFocalLength = maxFocalLength;
 
-        if (minFocalLength > maxFocalLength) {
-            System.out.println("minimal focal length must me less than maximal focal length.");
-        }
 
-        NUM_OF_LENSES++;
+        if (minFocalLength > maxFocalLength) {
+            throw new IllegalArgumentException("The minimal focal length must be less than the maximal focal length.");
+        } else {
+            NUM_OF_LENSES++;
+        }
 
     }
 
